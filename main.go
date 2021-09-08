@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"net/http"
 
-	"github.com/tyshkor/golang_test_app/model"
+	"github.com/tyshkor/golang_test_app/api"
 )
 
 func main() {
-	a := model.DataModel{}
-	fmt.Println(a)
+	api.SampleAPIInit()
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

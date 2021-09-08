@@ -1,3 +1,3 @@
-module golang_test_app/m/v1
+module github.com/tyshkor/golang_test_app
 
 go 1.15

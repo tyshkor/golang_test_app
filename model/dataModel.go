@@ -3,5 +3,6 @@ package model
 type DataModel struct {
 	ShippingSourceAddress      string
 	ShippingDestinationAddress string
-	Dimensions                 []Dimention
+	Dimensions                 Dimention
+	Cost                       uint
 }
