@@ -5,9 +5,16 @@ import (
 	"encoding/xml"
 	"net/http"
 
+	"github.com/tyshkor/golang_test_app/mockapi"
 	"github.com/tyshkor/golang_test_app/model"
 	"github.com/tyshkor/golang_test_app/usecase"
 )
+
+var mockDBList = [][]model.DataModel{
+	mockapi.MockDBAPI1,
+	mockapi.MockDBAPI2,
+	mockapi.MockDBAPI3,
+}
 
 func HandlerAPI1(w http.ResponseWriter, r *http.Request) {
 
@@ -20,7 +27,7 @@ func HandlerAPI1(w http.ResponseWriter, r *http.Request) {
 
 	data := model.ConvertAPI1ToStandard(payload)
 
-	res := usecase.PayloadHandler(data)
+	res := usecase.PayloadHandler(data, mockDBList)
 
 	output := model.OutPutModelAPI1{
 		Total: res,
@@ -43,7 +50,7 @@ func HandlerAPI2JSON(w http.ResponseWriter, r *http.Request) {
 
 	data := model.ConvertAPI2ToStandard(payload)
 
-	res := usecase.PayloadHandler(data)
+	res := usecase.PayloadHandler(data, mockDBList)
 
 	output := model.OutPutModelAPI2{
 		Amount: res,
@@ -66,7 +73,7 @@ func HandlerAPI2XML(w http.ResponseWriter, r *http.Request) {
 
 	data := model.ConvertAPI2ToStandard(payload)
 
-	res := usecase.PayloadHandler(data)
+	res := usecase.PayloadHandler(data, mockDBList)
 
 	output := model.OutPutModelAPI2{
 		Amount: res,

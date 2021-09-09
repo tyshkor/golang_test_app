@@ -10,13 +10,7 @@ import (
 	"github.com/tyshkor/golang_test_app/model"
 )
 
-var mockDBList = [][]model.DataModel{
-	mockapi.MockDBAPI1,
-	mockapi.MockDBAPI2,
-	mockapi.MockDBAPI3,
-}
-
-func PayloadHandler(data []model.DataModel) uint {
+func PayloadHandler(data []model.DataModel, mockDBList [][]model.DataModel) uint {
 
 	var syncMap sync.Map
 
