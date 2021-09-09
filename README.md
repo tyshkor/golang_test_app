@@ -1,1 +1,0 @@
-# golang_test_app
